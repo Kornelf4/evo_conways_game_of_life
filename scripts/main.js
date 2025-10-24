@@ -29,7 +29,7 @@ function renderCells() {
     }
 }
 function updateCells() {
-    ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+    //ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
     for (let i = 0; i < cellArray.length; i++) {
         cellArray[i].update();
     }
@@ -58,11 +58,14 @@ function updateDeadCells() {
                 if (i == 2 && i2 == 2) continue;
                 let target = getCellAt(actDeadCell.x + i2 - 2, actDeadCell.y + i - 2);
                 if (defaultDead.checkedLocations[i][i2] && target) {
+                    //Count living cells
                     counter++;
+                    //Cache parent rulesets
                     possibleParentRulesets.push(target.ruleset);
                 }
             }
         }
+        //Select random ruleset
         let randRuleset = possibleParentRulesets[getRndInteger(0, possibleParentRulesets.length - 1)];
         if (defaultDead.conditionList[counter]) willBeAdded.push(new Cell(actDeadCell.x, actDeadCell.y, mutRuleset(randRuleset)));
     }
@@ -90,42 +93,9 @@ function updateGameSpeed(to) {
     }, 1000 / updateSpeedFPS);
 }
 window.setInterval(() => {
+    //Update the camera on every gen? Abolutely.
     moveCamera();
-    //renderCells();
 }, 1000 / cameraMoveFPS);
-document.getElementById("pauseButton").onclick = function() {
-    isPaused = !isPaused;
-    if(isPaused) {
-        this.value = "Start";
-    } else {
-        this.value = "Pause";
-    }
-}
-document.getElementById("stepButton").onclick = updateState;
-document.getElementById("zoomInButton").onclick = () => {
-    let cameraCenterX = camera.x + canvas.clientWidth / 2;
-    let cameraCenterY = camera.y + canvas.clientHeight / 2;
-    let zoomingFactor = (UNIT + 5) / UNIT;
-    cameraCenterX *= zoomingFactor;
-    cameraCenterY *= zoomingFactor;
-    camera.x = cameraCenterX - canvas.clientWidth / 2;
-    camera.y = cameraCenterY - canvas.clientHeight / 2;
-    UNIT += 5;
-}
-document.getElementById("zoomOutButton").onclick = () => {
-    if (UNIT - 5 <= 0) return;
-    let cameraCenterX = camera.x + canvas.clientWidth / 2;
-    let cameraCenterY = camera.y + canvas.clientHeight / 2;
-    let zoomingFactor = (UNIT - 5) / UNIT;
-    cameraCenterX *= zoomingFactor;
-    cameraCenterY *= zoomingFactor;
-    camera.x = cameraCenterX - canvas.clientWidth / 2;
-    camera.y = cameraCenterY - canvas.clientHeight / 2;
-    UNIT -= 5;
-}
-document.getElementById("clearButton").onclick = () => {
-    cellArray = [];
-}
 intervalID = window.setInterval(() => {
     if (!isPaused) updateState();
     renderCells();

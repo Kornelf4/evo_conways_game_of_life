@@ -2,14 +2,13 @@ class Cell {
     constructor(x, y, parentRuleset) {
         this.x = x;
         this.y = y;
-        this.color = colorMap[JSON.stringify(parentRuleset)];
+        this.color = colorMap[JSON.stringify(parentRuleset)];//im serious
         this.ruleset = parentRuleset;
     }
     remove() {
         cellArray.splice(cellArray.indexOf(this), 1);
     }
     render() {
-
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x * UNIT - camera.x, this.y * UNIT - camera.y, UNIT, UNIT);
     }
@@ -25,7 +24,7 @@ class Cell {
         if(!this.ruleset.conditionList[count]) {
             willBeRemoved.push(this);
         }
-        
+        //detects dead cells near
         for(let i = 0; i < defaultDead.checkedLocations.length; i++) {
             for(let i2 = 0; i2 < defaultDead.checkedLocations[i].length; i2++) {
                 if(i == 2 && i2 == 2) continue;
