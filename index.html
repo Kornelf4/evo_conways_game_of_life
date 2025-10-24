@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evo Conway's game of life</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="settingsBox">
+        <div id="settingsBoxHeader"></div>
+        Click anywhere to toggle a cell. <br>
+        <input type="button" value="Start" id="pauseButton"><br>
+        <input type="button" value="Step" id="stepButton"><br>
+        <input type="button" value="+" id="zoomInButton"><br>
+        <input type="button" value="-" id="zoomOutButton"><br>
+        <input type="button" value="Clear" id="clearButton"><br>
+        Turns/sec: <input type="text" id="simSpeed" value="3"><br>
+        Mutation%: <input type="text" id="mutRate" value="0"><br>
+        Github: link <br>
+        Itch.io: link <br>
+        <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">CGoL wiki</a>
+    </div>
+    <canvas id="canvas"></canvas>
+</body>
+</html>
+<script src="scripts/ruleset.js"></script>
+<script src="scripts/dragSettings.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/input.js"></script>
+<script src="scripts/mutations.js"></script>
+<script src="scripts/cell.js"></script>
+<script src="scripts/controls.js"></script>
+<script>start()</script>
