@@ -7,6 +7,7 @@ Simple, minimalist JavaScript implementation of Conway's Game of Life, with one 
 - Zoom in and zoom out with the "+" and "-" buttons.
 - You can choose the simulation speed (turns/second)
 - You can choose how likely are the mutations. That means if you change the mutation rate to 20, there will be 20% chance in every new living cell will have the mutated version of the parent's rulesets. (I prefer 1%)
+- If you change a value in a text box, you have to hit enter after.
 ## How to try it
 You have two optons:
 1. Go to itch.io page: https://kornelf.itch.io/conways-game-of-life-evolution
