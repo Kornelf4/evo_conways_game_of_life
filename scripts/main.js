@@ -15,10 +15,40 @@ var intervalID = null;
 var mutationRate = 0;
 var colorMap = {};
 var grid = false;
+var selectedCell = false;
+var selectedRuleset = defaultRuleset;
 colorMap[JSON.stringify(defaultRuleset)] = "rgba(2, 91, 8, 1)";
 
 function start() {
-    cellArray.push(new Cell(1, 2, defaultRuleset))
+    cellArray.push(new Cell(1, 2, JSON.parse(JSON.stringify(defaultRuleset))));
+    initLocBoxes();
+    updateDisplay();
+    let boxElems = document.getElementsByClassName("locBox");
+    for (let i = 0; i < boxElems.length; i++) {
+        boxElems[i].addEventListener("click", function () {
+            let thisX = this.id.slice(1).split("_")[0];
+            let thisY = this.id.slice(1).split("_")[1];
+            if (selectedRuleset.checkedLocations[thisY][thisX]) {
+                selectedRuleset.conditionList.pop();
+            } else {
+                selectedRuleset.conditionList.push(false);
+            }
+            selectedRuleset.checkedLocations[thisY][thisX] = !selectedRuleset.checkedLocations[thisY][thisX];
+            updateDisplay();
+            if(selectedCell) selectedCell.updateColor();
+        })
+    }
+}
+function initLocBoxes() {
+    let target = document.getElementById("locationContainer");
+    for (let i = 0; i < 5; i++) {
+        for (let i2 = 0; i2 < 5; i2++) {
+            let actual = document.createElement("div");
+            actual.classList.add("locBox");
+            actual.id = `l${i2}_${i}`;
+            target.appendChild(actual);
+        }
+    }
 }
 function renderCells() {
     canvas.setAttribute("width", document.getElementsByTagName("body")[0].clientWidth);
@@ -47,6 +77,28 @@ function toggleCellAt(x, y, ruleSet) {
     } else {
         cellArray.push(new Cell(x, y, ruleSet));
     }
+}
+function selectCellAt(x, y) {
+    if(getCellAt(x, y)) {
+        if (selectedCell == getCellAt(x, y)) {
+            selectedCell.isSelected = false;
+            selectedCell = null;
+            selectedRuleset = defaultRuleset;
+            document.getElementById("modSelect").innerText = "default";
+        } else {
+            if(selectedCell) selectedCell.isSelected = false;
+            selectedCell = getCellAt(x, y);
+            selectedCell.isSelected = true;
+            selectedRuleset = selectedCell.ruleset;
+            document.getElementById("modSelect").innerText = "selected";
+        }
+    } else {
+        if(selectedCell) selectedCell.isSelected = false;
+        selectedCell = null;
+        selectedRuleset = defaultDead;
+        document.getElementById("modSelect").innerText = "dead";
+    }
+    updateDisplay();
 }
 function updateDeadCells() {
     for (let i = 0; i < reqDeadCells.length; i++) {

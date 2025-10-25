@@ -4,11 +4,17 @@ function onMouseDrag(event, element) {
     element.style.left = `${leftValue + event.movementX}px`;
     element.style.top = `${topValue + event.movementY}px`;
 }
-document.getElementById("settingsBox").addEventListener("mousedown", (e) => {
-    const onMove = (event) => onMouseDrag(event, document.getElementById("settingsBox")); 
+let draggableElements = [
+    document.getElementById("settingsBox"),
+    document.getElementById("rulesetBox")
+]
+for(let i = 0; i < draggableElements.length; i++) {
+    draggableElements[i].addEventListener("mousedown", (e) => {
+        const onMove = (event) => onMouseDrag(event, draggableElements[i]); 
 
-    document.addEventListener("mousemove", onMove);
-    document.addEventListener("mouseup", () => {
-        document.removeEventListener("mousemove", onMove);
-    }, { once: true });
-});
+        document.addEventListener("mousemove", onMove);
+        document.addEventListener("mouseup", () => {
+            document.removeEventListener("mousemove", onMove);
+        }, { once: true });
+    });
+}

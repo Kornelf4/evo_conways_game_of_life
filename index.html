@@ -16,11 +16,18 @@
         <input type="button" value="+" id="zoomInButton"><br>
         <input type="button" value="-" id="zoomOutButton"><br>
         <input type="button" value="Clear" id="clearButton"><br>
+        <input type="button" value="Plot randomly" id="randomPlot">
         Turns/sec: <input type="text" id="simSpeed" value="3"><br>
         Mutation%: <input type="text" id="mutRate" value="0"><br>
         <a href="https://github.com/Kornelf4/evo_conways_game_of_life">Github</a><br>
         Itch.io: link <br>
         <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">CGoL wiki</a>
+    </div>
+    <div id="rulesetBox">
+        <div id="rulesetBoxHeader"></div><br>
+        View&modify <div id="modSelect">default</div> cell settings: <br>
+        <div id="locationContainer"></div>
+        <div id="conditionContainer"></div>
     </div>
     <canvas id="canvas"></canvas>
 </body>
@@ -32,4 +39,5 @@
 <script src="scripts/mutations.js"></script>
 <script src="scripts/cell.js"></script>
 <script src="scripts/controls.js"></script>
+<script src="scripts/rulesetDisplay.js"></script>
 <script>start()</script>

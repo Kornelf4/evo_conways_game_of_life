@@ -6,7 +6,7 @@ var defaultRuleset = {
         [false, true, true, true, false],
         [false, false, false, false, false],
     ],
-    conditionList: [false, false, true, true, false, false, false, false]
+    conditionList: [false, false, true, true, false, false, false, false, false]
 }
 var defaultDead = {
     checkedLocations: [
@@ -16,5 +16,5 @@ var defaultDead = {
         [false, true, true, true, false],
         [false, false, false, false, false],
     ],
-    conditionList: [false, false, false, true, false, false, false, false]
+    conditionList: [false, false, false, true, false, false, false, false, false]
 }

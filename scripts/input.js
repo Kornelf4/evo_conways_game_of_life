@@ -4,7 +4,11 @@ canvas.addEventListener('click', function(event) {
     const rect = this.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
-    toggleCellAt(Math.floor((x + camera.x) / UNIT), Math.floor((y + camera.y) / UNIT), defaultRuleset);
+    if(pressedKeys.c) {
+        selectCellAt(Math.floor((x + camera.x) / UNIT), Math.floor((y + camera.y) / UNIT));
+    } else {
+        toggleCellAt(Math.floor((x + camera.x) / UNIT), Math.floor((y + camera.y) / UNIT), JSON.parse(JSON.stringify(defaultRuleset)));
+    }
 });
 document.getElementById("simSpeed").addEventListener("keydown", function(e)  {
     if(e.key === "Enter") {
@@ -51,4 +55,15 @@ document.getElementById("zoomOutButton").onclick = () => {
 }
 document.getElementById("clearButton").onclick = () => {
     cellArray = [];
+}
+document.getElementById("randomPlot").onclick = () => {
+    let squareSize = prompt("Size of square?");
+    let plotChance = prompt("Chance on evry UNIT?");
+    for(let i = 0;i < squareSize; i++) {
+        for(let i2 = 0; i2 < squareSize; i2++) {
+            if(Math.random() > plotChance) {
+                cellArray.push(new Cell(i2, i, JSON.parse(JSON.stringify(defaultRuleset))));
+            }
+        }
+    }
 }
