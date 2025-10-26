@@ -1,4 +1,20 @@
-window.addEventListener("keydown", (e) => pressedKeys[e.key.toLowerCase()] = true);
+window.addEventListener("keydown", (e) => {
+    pressedKeys[e.key.toLowerCase()] = true;
+    if(e.key.toLowerCase() == "h") {
+        if(selectedCell)selectedCell.isSelected = false;
+        selectedCell = null;
+        selectedRuleset = defaultDead;
+        document.getElementById("modSelect").innerText = "dead";
+        updateDisplay();
+    }
+    if(e.key.toLowerCase() == "n") {
+        if(selectedCell)selectedCell.isSelected = false;
+        selectedCell = null;
+        selectedRuleset = defaultRuleset;
+        document.getElementById("modSelect").innerText = "default";
+        updateDisplay();
+    }
+});
 window.addEventListener("keyup", (e) => delete pressedKeys[e.key.toLowerCase()]);
 canvas.addEventListener('click', function(event) {
     const rect = this.getBoundingClientRect();
