@@ -7,7 +7,7 @@ Simple, minimalist JavaScript implementation of Conway's Game of Life and many s
 - If you change a value in a text box, you have to hit enter after.
 You can find more about controls on the game.
 ## How to try it
-Two optons:
+Two options:
 1. Go to itch.io page: https://kornelf.itch.io/conways-game-of-life-evolution
 2. Download or clone this repository and open index.html in a browser.
 ## Bonus info
