@@ -55,15 +55,35 @@ document.getElementById("zoomOutButton").onclick = () => {
 }
 document.getElementById("clearButton").onclick = () => {
     cellArray = [];
+    selectedCell = null;
+    selectedRuleset = defaultRuleset;
 }
 document.getElementById("randomPlot").onclick = () => {
+    if(cellArray.length != 0) {
+        if(confirm("The word should be empty. Do you want to clear the living cells, and then plot randomly?")) {
+            cellArray = [];
+            selectedCell = null;
+            selectedRuleset = defaultRuleset;
+        } else {
+            return;
+        }
+    }
     let squareSize = prompt("Size of square?");
-    let plotChance = prompt("Chance on evry UNIT?");
+    let plotChance = prompt("Chance for living cell on every UNIT? (From 0 to 1)");
     for(let i = 0;i < squareSize; i++) {
         for(let i2 = 0; i2 < squareSize; i2++) {
-            if(Math.random() > plotChance) {
+            if(Math.random() < plotChance) {
                 cellArray.push(new Cell(i2, i, JSON.parse(JSON.stringify(defaultRuleset))));
             }
         }
+    }
+}
+canvas.onwheel = function(e) {
+    e.preventDefault();
+    console.log(e.deltaY);
+    if(e.deltaY < 0) {
+        document.getElementById("zoomInButton").click(); //And I regret nothing
+    } else {
+        document.getElementById("zoomOutButton").click();
     }
 }

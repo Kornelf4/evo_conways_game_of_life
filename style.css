@@ -18,7 +18,7 @@ body {
 .stepButton {
     position: absolute;
 }
-#settingsBox, #rulesetBox {
+#settingsBox, #rulesetBox, #helpBox {
     width: 15%;
     float: right;
     margin: 2%;
@@ -26,7 +26,13 @@ body {
     border-radius: 5px;
     box-sizing: border-box;
     position: absolute;
-    right: 10%;
+    right: 5%;
+}
+#settingsBox {
+    right: 22%;
+}
+#helpBox {
+    left: 5%;
 }
 input[type="button"] {
     margin: 1%;
@@ -42,7 +48,7 @@ input[type="button"]:hover {
     background-color: green;
     opacity: 1;
 }
-#settingsBoxHeader, #rulesetBoxHeader {
+#settingsBoxHeader, #rulesetBoxHeader, #helpBoxHeader {
     width: 100%;
     height: 20px;
     background-color: darkblue;
@@ -100,4 +106,7 @@ input[type="button"]:hover {
 .dead {
     background-color: black;
     color: white;
+}
+.modeHelp {
+    border: 3px solid yellow;
 }

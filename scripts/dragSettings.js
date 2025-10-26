@@ -6,7 +6,8 @@ function onMouseDrag(event, element) {
 }
 let draggableElements = [
     document.getElementById("settingsBox"),
-    document.getElementById("rulesetBox")
+    document.getElementById("rulesetBox"),
+    document.getElementById("helpBox")
 ]
 for(let i = 0; i < draggableElements.length; i++) {
     draggableElements[i].addEventListener("mousedown", (e) => {

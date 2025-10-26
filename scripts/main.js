@@ -6,7 +6,7 @@ var UNIT = 50;
 var camera = { x: 0, y: 0 };
 var cameraSpeed = 5;
 var cameraMoveFPS = 60;
-var updateSpeedFPS = 3;
+var updateSpeedFPS = 10;
 var reqDeadCells = [];
 var willBeRemoved = [];
 var willBeAdded = [];
@@ -20,7 +20,6 @@ var selectedRuleset = defaultRuleset;
 colorMap[JSON.stringify(defaultRuleset)] = "rgba(2, 91, 8, 1)";
 
 function start() {
-    cellArray.push(new Cell(1, 2, JSON.parse(JSON.stringify(defaultRuleset))));
     initLocBoxes();
     updateDisplay();
     let boxElems = document.getElementsByClassName("locBox");

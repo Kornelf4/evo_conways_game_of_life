@@ -9,27 +9,36 @@
 <body>
     <div id="settingsBox">
         <div id="settingsBoxHeader"></div>
-        Click anywhere to toggle a cell. <br>
-        Use WASD keys to move the camera. <br>
         <input type="button" value="Start" id="pauseButton"><br>
         <input type="button" value="Step" id="stepButton"><br>
         <input type="button" value="+" id="zoomInButton"><br>
         <input type="button" value="-" id="zoomOutButton"><br>
         <input type="button" value="Clear" id="clearButton"><br>
         <input type="button" value="Plot randomly" id="randomPlot">
-        Turns/sec: <input type="text" id="simSpeed" value="3"><br>
+        Turns/sec: <input type="text" id="simSpeed" value="10"><br>
         Mutation%: <input type="text" id="mutRate" value="0"><br>
         <a href="https://github.com/Kornelf4/evo_conways_game_of_life">Github</a><br>
-        Itch.io: link <br>
+        <a href="https://kornelf.itch.io/conways-game-of-life-evolution">Itch.io</a><br>
         <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">CGoL wiki</a>
     </div>
     <div id="rulesetBox">
         <div id="rulesetBoxHeader"></div><br>
-        View&modify <div id="modSelect">default</div> cell settings: <br>
+        View&modify <br><div id="modSelect">default</div>mode <br> cell settings: <br>
         <input type="button" value="Copy ruleset data" id="copyData">
         <input type="button" value="Paste ruleset data" id="pasteData">
         <div id="locationContainer"></div>
         <div id="conditionContainer"></div>
+    </div>
+    <div id="helpBox">
+        <div id="helpBoxHeader"></div>
+        <div class="modeHelp">Click anywhere to toggle a cell. </div><br>
+        <div class="modeHelp">Use WASD keys to move the camera.</div> <br>
+        <div class="modeHelp"></div>Use the wheel or the buttons to zoom in or out. <br>
+        <div class="modeHelp"> Press c and click a cell to select and modify it. <br></div>
+        <div class="modeHelp">Click on it once again (while pressing c) to deselect it, and go to default mode. </div> <br>
+        <div class="modeHelp">If you press c and click a dead cell, you can view (and modify) the dead cell settings.</div> <br>
+        <div class="modeHelp">You can also go to dead cell settings if you press h.</div> <br>
+        <div class="modeHelp"> You can go to default mode if you deselect a cell, or press n.</div>
     </div>
     <canvas id="canvas"></canvas>
 </body>
