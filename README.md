@@ -1,7 +1,7 @@
 # The Silent Plane: Cellural automaton simulator and toolbox
 (If you don't know what is Conway's Game of Life: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 Simple, minimalist JavaScript implementation of Conway's Game of Life and many similar cellural automatons. You can edit and view the cells rulesets, you can ever create your own! Interestingly, you can simulate multiple different cellural automatons at once, and you can also enable mutations (basically, there is a chance that the child cell will have slightly changed ruleset of the parent's) for a chaotic, but fun experience.
-# Controls
+## Controls
 - You can choose the simulation speed (turns/second)
 - You can choose how likely are the mutations. That means if you change the mutation rate to 20, there will be 20% chance in every new living cell will have the mutated version of the parent's rulesets. (I prefer 1%)
 - If you change a value in a text box, you have to hit enter after.
