@@ -53,6 +53,8 @@ input[type="button"]:hover {
     height: 20px;
     background-color: darkblue;
     cursor: move;
+    color: white;
+    font-size: large;
 }
 #simSpeed, #mutRate {
     width: 35%;
@@ -79,7 +81,7 @@ input[type="button"]:hover {
 }
 #conditionContainer {
     border: 5px solid yellow;
-    max-height: 40vh;
+    max-height: 20vh;
     overflow-y: scroll;
 }
 .conditionBox {

@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="settingsBox">
-        <div id="settingsBoxHeader"></div>
+        <div id="settingsBoxHeader">General settings:</div>
         <input type="button" value="Start" id="pauseButton"><br>
         <input type="button" value="Step" id="stepButton"><br>
         <input type="button" value="+" id="zoomInButton"><br>
@@ -22,15 +22,17 @@
         <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">CGoL wiki</a>
     </div>
     <div id="rulesetBox">
-        <div id="rulesetBoxHeader"></div><br>
-        View&modify <br><div id="modSelect">default</div>mode <br> cell settings: <br>
+        <div id="rulesetBoxHeader">View&modify</div><br>
+        <div id="modSelect">default</div>mode <br>
         <input type="button" value="Copy ruleset data" id="copyData">
         <input type="button" value="Paste ruleset data" id="pasteData">
+        What are the relevant neighbors (toggle with click):
         <div id="locationContainer"></div>
+        Next genereration state, depending on the number of the living neighbors (toggle with click):
         <div id="conditionContainer"></div>
     </div>
     <div id="helpBox">
-        <div id="helpBoxHeader"></div>
+        <div id="helpBoxHeader">Controls:</div>
         <div class="modeHelp">Click anywhere to toggle a cell. </div><br>
         <div class="modeHelp">Use WASD keys to move the camera.</div> <br>
         <div class="modeHelp"></div>Use the wheel or the buttons to zoom in or out. <br>
